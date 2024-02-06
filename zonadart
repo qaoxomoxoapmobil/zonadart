@@ -1,0 +1,84 @@
+#!/bin/bash
+#=================================================================
+#                                                                
+#        FITXER:  zonadart                                     
+# 
+#            US:  ./zonadart 
+# 
+#    DESCRIPCIÓ:  Rutines de Zona d'Art
+# 
+#       OPCIONS:  ---
+#  REQUIREMENTS:  --- mutt speedtest-cli ipcalc sipcalc secure-delete
+#          BUGS:  ---
+#         NOTES:  ---
+#         AUTOR:  Gonçal Sallan i Baso (), zonadart@autistici.org
+#     COMPANYIA:  Administració de Sistemes Linux
+#        VERSIÓ:  2.0
+#         CREAT:  27/11/09 13:56:11 CET
+#       REVISIÓ:  03/07/18 13:56:11 CET
+#=================================================================
+
+clear
+#while :
+#do
+echo "M E N U :"
+echo "========="
+echo
+echo "a) COMPTABILITAT"
+echo "b) REPOSITORIS I APT"
+echo "c) SEGURETAT"
+echo "d) XARXES"
+echo "e) SISTEMA"
+echo "f) SERVIDORS"
+echo "g) UTILITATS"
+echo
+echo "**********"
+echo
+echo "q) Sortir"
+echo
+echo "**********"
+
+export adr=\/opt\/zonadart
+
+read opcio
+
+case $opcio in
+
+a)
+sh $adr/compt.sh
+;;
+
+b)
+sh $adr/repo.sh
+;;
+
+c)
+sh $adr/sec.sh
+;;
+
+d)
+sh $adr/xarx.sh
+;;
+
+e)
+sh $adr/sist.sh
+;;
+
+f)
+sh $adr/serv.sh
+;;
+
+g)
+sh $adr/util.sh
+;;
+
+################################################# Sortir
+q)
+exit
+;;
+########### Opció invàlida
+*)
+echo "Opció invàlida"
+###########################################################
+esac
+#done
