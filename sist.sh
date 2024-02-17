@@ -102,7 +102,9 @@ read comande
 if [ "$comande" = "q" ]; then
   exit
 fi
+# sudo apt install manpages-es
 man --locale=es $comande
+# LANG=es_ES.utf8 man $comande 
 sh $adr/sortida.sh
 ;;
 
