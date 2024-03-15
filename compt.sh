@@ -73,7 +73,8 @@ case $opcio in
 a)
 echo
 
-rm $HOME/MEGA/MEGAsync/zonadart/documents/sec/backups/GNUCash/gnucash_db.sql
+# rm $HOME/MEGA/MEGAsync/zonadart/documents/sec/backups/GNUCash/gnucash_db.sql
+find $HOME/MEGA/MEGAsync/zonadart/documents/sec/backups/GNUCash/ -type f -name "gnucash_db.sql" -exec rm -rf {} \;
 
 USER=zonadart
 DATABASE=gnucash_db
