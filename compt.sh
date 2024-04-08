@@ -21,6 +21,12 @@ set -o nounset                              # Treat unset variables as an error
 set -e
 set -u
 
+# Variables
+USER=zonadart
+DATABASE=gnucash_db
+PASS=c4fa6fe9
+#
+
 clear
 #while :
 #do
@@ -76,13 +82,13 @@ echo
 # rm $HOME/MEGA/MEGAsync/zonadart/documents/sec/backups/GNUCash/gnucash_db.sql
 find $HOME/MEGA/MEGAsync/zonadart/documents/sec/backups/GNUCash/ -type f -name "gnucash_db.sql" -exec rm -rf {} \;
 
-USER=zonadart
-DATABASE=gnucash_db
-PASS=c4fa6fe9
+#USER=zonadart
+#DATABASE=gnucash_db
+#PASS=c4fa6fe9
 
 mysqldump --user=$USER --password="${PASS}" $DATABASE > $HOME/MEGA/MEGAsync/zonadart/documents/sec/backups/GNUCash/gnucash_db.sql
 
-echo "Copia de Seguretat Realitzada Correctament"
+echo "Copia de Seguretat Realitzada"
 echo
 sh $adr/sortida.sh
 ;;
@@ -109,15 +115,15 @@ sh $adr/sortida.sh
 b)
 echo
 
-USER=zonadart
-DATABASE=gnucash_db
-PASS=c4fa6fe9
+#USER=zonadart
+#DATABASE=gnucash_db
+#PASS=c4fa6fe9
 
 mariadb -h localhost --user=$USER --password="${PASS}" -Nse 'show tables' $DATABASE | while read table; do mariadb --user=$USER --password="${PASS}" -e "drop table $table" $DATABASE; done
 
 mariadb --user=$USER --password="${PASS}" $DATABASE < $HOME/MEGA/MEGAsync/zonadart/documents/sec/backups/GNUCash/gnucash_db.sql
 
-echo "Copia de Seguretat Restaurada Correctament"
+echo "Copia de Seguretat Restaurada"
 echo
 sh $adr/sortida.sh
 ;;

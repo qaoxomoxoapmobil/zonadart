@@ -42,6 +42,7 @@ echo "l) Desactivar la webcam"
 echo "m) Activar la webcam"
 echo "n) Generar banner ASCII"
 echo "o) Generar missatge VACA"
+echo "p) Recerca musical"
 echo "**********"
 echo
 echo "q) Sortir"
@@ -51,6 +52,22 @@ echo "**********"
 read opcio
 
 case $opcio in
+
+p)
+echo -n "Introdueix nom a cercar ('q' per sortir): "
+read nom
+if [ "$nom" = "q" ]; then
+  exit
+fi
+echo -n "Introdueix si es CANÇÓ ('f') o GRUP ('d') ('q' per sortir): "
+read det
+if [ "$det" = "q" ]; then
+  exit
+fi
+find /media/$USER/MUSIC*/ -type $det -name "*$nom*" | more
+echo
+sh $adr/sortida.sh
+;;
 
 ############### Generar missatge VACA
 o)
