@@ -119,7 +119,7 @@ sh $adr/sortida.sh
 
 ############### Esbmt=single-columnrrar fitxer de forma segura
 f)
-ls -1 $PWD
+ls -1a $PWD
 echo -n "Introdueïx nom del fitxer a esborrar ('q' per sortir): "
 read caput
 if [ "$caput" = "q" ]; then
