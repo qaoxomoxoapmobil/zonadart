@@ -43,6 +43,7 @@ echo "m) Activar la webcam"
 echo "n) Generar banner ASCII"
 echo "o) Generar missatge VACA"
 echo "p) Recerca musical"
+echo "r) Convertir vídeo mkv a mp4"
 echo "**********"
 echo
 echo "q) Sortir"
@@ -53,6 +54,20 @@ read opcio
 
 case $opcio in
 
+############### Convertir vídeo mkv a mp4
+r)
+ls -1 *.mkv
+echo -n "Introdueïx la pel·licula a convertir ('q' per sortir): "
+read peli
+if [ "$peli" = "q" ]; then
+  exit
+fi
+ffmpeg -i $peli -c copy $peli.mp4
+echo
+sh $adr/sortida.sh
+;;
+
+############### Recerca musical
 p)
 echo -n "Introdueix nom a cercar ('q' per sortir): "
 read nom
@@ -64,7 +79,7 @@ read det
 if [ "$det" = "q" ]; then
   exit
 fi
-find /media/$USER/MUSIC*/ -type $det -name "*$nom*" | more
+find /media/$USER/MUSIC*/ -type $det -iname "*$nom*" | more
 echo
 sh $adr/sortida.sh
 ;;

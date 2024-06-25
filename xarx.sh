@@ -122,7 +122,7 @@ sh $adr/sortida.sh
 
 ############### LLISTAT D'ORDINADORS
 e)
-sudo nmap -sP 192.168.1.1/24 | grep down -v
+sudo nmap -sP 192.168.69.0/27 | grep down -v
 sh $adr/sortida.sh
 ;;
 
